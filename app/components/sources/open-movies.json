@@ -1,0 +1,118 @@
+{
+  "about": "Blender Foundation open movies (Creative Commons Attribution) on public test-stream hosts. Keyed by TMDB ID. height is the best picture a 720p TV gets from the copy; durationSec was measured from each stream.",
+  "titles": [
+    {
+      "tmdbId": "10378",
+      "title": "Big Buck Bunny",
+      "year": "2008",
+      "copies": [
+        {
+          "label": "Mux test stream",
+          "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+          "format": "hls",
+          "height": 720,
+          "bitrateKbps": 2149,
+          "videoCodec": "h264",
+          "durationSec": 635,
+          "audio": [{ "language": "eng", "label": "English" }]
+        }
+      ]
+    },
+    {
+      "tmdbId": "45745",
+      "title": "Sintel",
+      "year": "2010",
+      "copies": [
+        {
+          "label": "THEOplayer demo stream",
+          "url": "https://cdn.theoplayer.com/video/sintel/index.m3u8",
+          "format": "hls",
+          "height": 720,
+          "bitrateKbps": 4564,
+          "videoCodec": "h264",
+          "durationSec": 888,
+          "audio": [{ "language": "eng", "label": "English" }],
+          "subtitles": [
+            { "url": "", "language": "eng", "label": "English", "format": "vtt" },
+            { "url": "", "language": "ger", "label": "German", "format": "vtt" },
+            { "url": "", "language": "fre", "label": "French", "format": "vtt" },
+            { "url": "", "language": "dut", "label": "Dutch", "format": "vtt" },
+            { "url": "", "language": "chi", "label": "Chinese", "format": "vtt" }
+          ]
+        },
+        {
+          "label": "Blender download (MKV)",
+          "url": "https://download.blender.org/demo/movies/Sintel.2010.1080p.mkv",
+          "format": "mkv",
+          "height": 1080,
+          "videoCodec": "h264",
+          "durationSec": 888,
+          "audio": [{ "language": "eng", "label": "English" }]
+        }
+      ]
+    },
+    {
+      "tmdbId": "133701",
+      "title": "Tears of Steel",
+      "year": "2012",
+      "copies": [
+        {
+          "label": "Unified Streaming demo",
+          "url": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
+          "format": "hls",
+          "height": 720,
+          "bitrateKbps": 2468,
+          "videoCodec": "h264",
+          "durationSec": 734,
+          "audio": [{ "language": "eng", "label": "English" }]
+        },
+        {
+          "label": "Blender download (720p MOV)",
+          "url": "https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov",
+          "format": "mp4",
+          "height": 720,
+          "videoCodec": "h264",
+          "durationSec": 734,
+          "audio": [{ "language": "eng", "label": "English" }],
+          "subtitles": [
+            { "url": "https://download.blender.org/demo/movies/ToS/subtitles/TOS-en.srt", "language": "eng", "label": "English", "format": "srt" },
+            { "url": "https://download.blender.org/demo/movies/ToS/subtitles/TOS-es.srt", "language": "spa", "label": "Spanish", "format": "srt" },
+            { "url": "https://download.blender.org/demo/movies/ToS/subtitles/TOS-fr-orig.srt", "language": "fre", "label": "French", "format": "srt" },
+            { "url": "https://download.blender.org/demo/movies/ToS/subtitles/TOS-de.srt", "language": "ger", "label": "German", "format": "srt" }
+          ]
+        },
+        {
+          "label": "Mux test stream (1080p)",
+          "url": "https://test-streams.mux.dev/tos_ismc/main.m3u8",
+          "format": "hls",
+          "height": 1080,
+          "bitrateKbps": 6296,
+          "videoCodec": "h264",
+          "durationSec": 734,
+          "audio": [{ "language": "eng", "label": "English" }]
+        }
+      ]
+    },
+    {
+      "tmdbId": "9761",
+      "title": "Elephants Dream",
+      "year": "2006",
+      "copies": [
+        {
+          "label": "THEOplayer demo stream",
+          "url": "https://cdn.theoplayer.com/video/elephants-dream/playlist.m3u8",
+          "format": "hls",
+          "height": 720,
+          "bitrateKbps": 2962,
+          "videoCodec": "h264",
+          "durationSec": 654,
+          "audio": [
+            { "language": "eng", "label": "English" },
+            { "language": "spa", "label": "Spanish" },
+            { "language": "eng", "label": "Commentary" }
+          ]
+        }
+      ]
+    }
+  ]
+}

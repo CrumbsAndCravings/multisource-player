@@ -1,0 +1,8 @@
+{
+  "season_number": 1,
+  "episodes": [
+    { "season_number": 1, "episode_number": 2, "name": "The Second", "overview": "Two.", "still_path": "/e2.jpg", "runtime": 56 },
+    { "season_number": 1, "episode_number": 1, "name": "", "overview": "One.", "still_path": null, "runtime": null },
+    { "season_number": 1, "episode_number": 0, "name": "Unnumbered extra" }
+  ]
+}

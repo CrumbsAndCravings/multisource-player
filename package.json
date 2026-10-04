@@ -1,0 +1,16 @@
+{
+  "name": "multisource-player",
+  "private": true,
+  "description": "ARAN+ Lab: a Roku player that finds every copy of a title across sources you're allowed to use, plays the best one, and measures how it went.",
+  "scripts": {
+    "lint": "bsc --create-package=false",
+    "build": "bsc",
+    "deploy": "bsc --deploy --host $ROKU_HOST --password $ROKU_PASSWORD",
+    "images": "python3 tools/make_images.py",
+    "test": "sh tools/test.sh"
+  },
+  "devDependencies": {
+    "brighterscript": "^0.73.5",
+    "brs": "^0.45.0"
+  }
+}

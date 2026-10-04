@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Finds every copy of a title. Set `request` to { media, prefs, lastSource }, then
+  control = "RUN". `result` is { ok, copies (best first), blocked, sources, request }.
+-->
+<component name="ResolveTask" extends="Task">
+  <interface>
+    <field id="request" type="assocarray" />
+    <field id="result" type="assocarray" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/common/Utils.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Config.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Compat.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Tracks.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Media.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Rank.brs" />
+  <script type="text/brightscript" uri="pkg:/components/tasks/Http.brs" />
+  <script type="text/brightscript" uri="pkg:/components/sources/Sources.brs" />
+  <script type="text/brightscript" uri="pkg:/components/sources/OpenMovies.brs" />
+  <script type="text/brightscript" uri="pkg:/components/tasks/Resolve.brs" />
+  <script type="text/brightscript" uri="pkg:/components/tasks/ResolveTask.brs" />
+</component>

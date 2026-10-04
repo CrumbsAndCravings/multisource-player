@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Runs TMDB requests off the UI thread. Set `request`, then control = "RUN".
+  `content` (if any) is set before `result`, so callers only need to observe `result`.
+  Modes: details, season, search, rows (Home's catalog rows, with details filled in).
+-->
+<component name="TmdbTask" extends="Task">
+  <interface>
+    <field id="request" type="assocarray" />
+    <field id="content" type="node" />
+    <field id="result" type="assocarray" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/common/Utils.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Config.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Tracks.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Media.brs" />
+  <script type="text/brightscript" uri="pkg:/components/tasks/Http.brs" />
+  <script type="text/brightscript" uri="pkg:/components/tasks/TmdbParse.brs" />
+  <script type="text/brightscript" uri="pkg:/components/sources/Sources.brs" />
+  <script type="text/brightscript" uri="pkg:/components/sources/OpenMovies.brs" />
+  <script type="text/brightscript" uri="pkg:/components/tasks/TmdbTask.brs" />
+</component>

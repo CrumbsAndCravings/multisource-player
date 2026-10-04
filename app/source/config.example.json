@@ -1,0 +1,11 @@
+{
+  "tmdbToken": "<TMDB API Read Access Token: themoviedb.org, Settings, API>",
+  "household": "<any name; sets the Continue Watching sync space later>",
+  "languages": { "audio": "en", "subtitles": "off" },
+  "tuning": {
+    "resolveBudgetMs": 6000,
+    "startWaitMs": 1500,
+    "stallSwitchMs": 8000,
+    "maxBandwidthKbps": 5000
+  }
+}

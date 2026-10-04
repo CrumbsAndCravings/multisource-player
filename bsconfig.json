@@ -1,0 +1,8 @@
+{
+  "rootDir": "app",
+  "files": ["manifest", "source/**/*", "components/**/*", "images/**/*", "fonts/**/*", "!source/config.example.json"],
+  "stagingDir": "build/staging",
+  "outFile": "build/aranplus-lab.zip",
+  "createPackage": true,
+  "retainStagingDir": false
+}

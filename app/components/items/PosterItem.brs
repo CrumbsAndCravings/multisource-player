@@ -1,0 +1,70 @@
+sub init()
+    m.card = m.top.FindNode("card")
+    m.ring = m.top.FindNode("ring")
+    m.base = m.top.FindNode("base")
+    m.poster = m.top.FindNode("poster")
+    m.fallback = m.top.FindNode("fallback")
+    m.track = m.top.FindNode("track")
+    m.fill = m.top.FindNode("fill")
+    m.caption = m.top.FindNode("caption")
+    m.captionBand = m.top.FindNode("captionBand")
+    m.pulse = m.top.FindNode("pulse")
+    ' Titles come from the provider and may not be in a Latin script.
+    m.fallback.font = "font:SmallestBoldSystemFont"
+    m.caption.font = MakeFont("Nunito-ExtraBold", 14)
+end sub
+
+sub onContentChange()
+    item = m.top.itemContent
+    if item = invalid then return
+    if item.placeholder then
+        m.base.blendColor = "0x241C42FF"
+        m.poster.opacity = 1.0
+        m.poster.uri = ""
+        m.fallback.text = ""
+        m.caption.text = ""
+        m.captionBand.visible = false
+        m.track.visible = false
+        m.fill.visible = false
+        m.pulse.control = "start"
+        return
+    end if
+    m.pulse.control = "stop"
+    m.base.opacity = 1.0
+    m.base.blendColor = "0x241C42FF"
+    m.fallback.font = "font:SmallestBoldSystemFont"
+    m.fallback.color = "0x9083BDFF"
+    m.fallback.height = 160
+    m.poster.uri = item.HDPosterUrl
+    m.fallback.text = item.title
+    m.caption.text = item.caption
+    m.caption.color = "0xC3B8E6FF"
+    m.poster.opacity = 1.0
+    if item.problem <> "" then
+        m.poster.opacity = 0.35
+        m.caption.text = "Won't play"
+        m.caption.color = "0xFFD98AFF"
+    else if item.sourceCount = 0 then
+        ' Search results no source has: still openable, but quiet.
+        m.poster.opacity = 0.35
+        m.caption.color = "0xA195CCFF"
+    end if
+    showProgress = item.progress > 0
+    m.track.visible = showProgress
+    m.fill.visible = showProgress
+    if showProgress then m.fill.width = 120 * item.progress
+    m.captionBand.visible = m.caption.text <> ""
+end sub
+
+sub onFocusChange()
+    amount = 0.0
+    if m.top.gridHasFocus then
+        amount = m.top.focusPercent
+    else if m.top.rowListHasFocus then
+        amount = m.top.focusPercent * m.top.rowFocusPercent
+    end if
+    ' A small lift, so a focused poster doesn't run into its close neighbours.
+    scale = 1 + 0.06 * amount
+    m.card.scale = [scale, scale]
+    m.ring.opacity = amount
+end sub

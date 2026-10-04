@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  A 120x180 poster tile for RowList, from ARAN+: sharp corners, grows a little with a
+  lavender ring when focused, and pulses softly while its row is still loading. Badges
+  ("No source", "S1:E4") and the progress bar sit on the poster, so rows can sit close
+  together. Without artwork the title shows on the card.
+-->
+<component name="PosterItem" extends="Group">
+  <interface>
+    <field id="itemContent" type="node" onChange="onContentChange" />
+    <field id="focusPercent" type="float" onChange="onFocusChange" />
+    <field id="rowFocusPercent" type="float" onChange="onFocusChange" />
+    <field id="rowListHasFocus" type="boolean" onChange="onFocusChange" />
+    <field id="gridHasFocus" type="boolean" onChange="onFocusChange" />
+    <field id="width" type="float" />
+    <field id="height" type="float" />
+  </interface>
+  <children>
+    <Group id="card" scaleRotateCenter="[60, 90]">
+      <Poster id="ring" translation="[-4, -4]" width="128" height="188" uri="pkg:/images/ring.9.png" blendColor="0xC9B8FFFF" opacity="0" />
+      <Poster id="base" width="120" height="180" uri="pkg:/images/card.9.png" blendColor="0x241C42FF" />
+      <Label id="fallback" translation="[10, 10]" width="100" height="160" wrap="true" maxLines="5"
+        horizAlign="center" vertAlign="center" color="0x9083BDFF" />
+      <Poster id="poster" width="120" height="180" loadWidth="120" loadHeight="180" loadDisplayMode="scaleToZoom" />
+      <Poster id="corners" width="120" height="180" uri="pkg:/images/corners.9.png" blendColor="0x151028FF" />
+      <Rectangle id="captionBand" translation="[0, 150]" width="120" height="26" color="0x0D0920D9" visible="false" />
+      <Label id="caption" translation="[0, 150]" width="120" height="26" horizAlign="center" vertAlign="center" color="0xC3B8E6FF" />
+      <Rectangle id="track" translation="[0, 176]" width="120" height="4" color="0x151028CC" visible="false" />
+      <Rectangle id="fill" translation="[0, 176]" width="0" height="4" color="0xFF9ECFFF" visible="false" />
+    </Group>
+
+    <Animation id="pulse" duration="1.4" repeat="true" easeFunction="inOutQuad">
+      <FloatFieldInterpolator key="[0.0, 0.5, 1.0]" keyValue="[0.45, 1.0, 0.45]" fieldToInterp="base.opacity" />
+    </Animation>
+  </children>
+  <script type="text/brightscript" uri="pkg:/components/common/Utils.brs" />
+  <script type="text/brightscript" uri="pkg:/components/items/PosterItem.brs" />
+</component>

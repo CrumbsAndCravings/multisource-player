@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Holds a simple stack of screens: Home at the bottom, then Search or Details, then Player. -->
+<component name="MainScene" extends="Scene">
+  <interface>
+    <field id="deepLink" type="assocarray" alwaysNotify="true" onChange="onDeepLink" />
+  </interface>
+  <children>
+    <Group id="stack" />
+  </children>
+  <script type="text/brightscript" uri="pkg:/components/common/Utils.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Config.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Registry.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Prefs.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Progress.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Tracks.brs" />
+  <script type="text/brightscript" uri="pkg:/components/common/Media.brs" />
+  <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+</component>
