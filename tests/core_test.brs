@@ -113,9 +113,11 @@ sub testRanking()
     check("not yet expired", CopyProblem(MakeCopy({ url: "a.mp4", expiresAt: now + 60 }), media, noHevc, now), "")
     check("different cut", CopyProblem(MakeCopy({ url: "a.mp4", durationSec: 900 }), media, noHevc, now), "a different cut (15:00 long, TMDB says 10m)")
 
-    ' TMDB rounds to the minute, so short films get 90 seconds of room.
-    check("cut: Big Buck Bunny 10:35 vs 10m", boolText(SameCut(635, 600)), "true")
-    check("cut: 92 seconds over", boolText(SameCut(692, 600)), "false")
+    ' TMDB rounds to the minute and often leaves out credits, so short films get 3
+    ' minutes of room. Big Buck Bunny: TMDB says 8 minutes, the Mux copy is 10:35.
+    check("cut: Big Buck Bunny 10:35 vs TMDB 8m", boolText(SameCut(635, 480)), "true")
+    check("cut: 3 minutes over", boolText(SameCut(780, 600)), "true")
+    check("cut: 3 minutes 1 second over", boolText(SameCut(781, 600)), "false")
     check("cut: 2h film, 5 min off", boolText(SameCut(7500, 7200)), "true")
     check("cut: 2h film, 7 min off", boolText(SameCut(7620, 7200)), "false")
     check("cut: unknown length", boolText(SameCut(0, 600)), "true")
@@ -269,8 +271,8 @@ sub testOpenMovies()
     check("steel best", ranked.playable[0].label, "Unified Streaming demo")
     check("steel 1080p last", ranked.playable[2].label, "Mux test stream (1080p)")
     bunny = OpenMoviesCopies(data, MakeMedia({ type: "movie", tmdbId: "10378" }))
-    ranked = RankCopies(bunny, MakeMedia({ type: "movie", tmdbId: "10378", runtimeSec: 600 }), { hevc: false }, {}, {}, "", ["openmovies"], 1800000000)
-    checkInt("bunny plays despite TMDB's 10m", ranked.playable.Count(), 1)
+    ranked = RankCopies(bunny, MakeMedia({ type: "movie", tmdbId: "10378", runtimeSec: 480 }), { hevc: false }, {}, {}, "", ["openmovies"], 1800000000)
+    checkInt("bunny plays despite TMDB's 8m", ranked.playable.Count(), 1)
 end sub
 
 ' --- TMDB ------------------------------------------------------------------------

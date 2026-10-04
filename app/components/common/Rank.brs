@@ -20,12 +20,13 @@ function CopyProblem(copy as Object, media as Object, caps as Object, now as Int
     return ""
 end function
 
-' True when a copy's length fits the TMDB runtime: within 5%, or 90 seconds for short
-' films, since TMDB rounds runtimes to the minute. Unknown lengths always fit.
+' True when a copy's length fits the TMDB runtime: within 5%, or 3 minutes for short
+' films. TMDB rounds runtimes to the minute and often leaves out the credits: it lists
+' Big Buck Bunny as 8 minutes, and the Mux copy runs 10:35. Unknown lengths always fit.
 function SameCut(copySec as Integer, runtimeSec as Integer) as Boolean
     if copySec <= 0 or runtimeSec <= 0 then return true
     allowed = runtimeSec * 0.05
-    if allowed < 90 then allowed = 90
+    if allowed < 180 then allowed = 180
     return Abs(copySec - runtimeSec) <= allowed
 end function
 
