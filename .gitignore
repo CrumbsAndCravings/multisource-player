@@ -1,0 +1,7 @@
+node_modules/
+build/
+out/
+.DS_Store
+.env
+# Your TMDB token and other keys baked into a build; never commit it.
+app/source/config.json
